@@ -4,6 +4,7 @@ public class Assignment {
     String courseName;
     String assignmentName;
     int maxScore;
+    //make private?
     HashMap<String, Integer> grades = new HashMap<String,Integer>();
 
     //Simple Constructor

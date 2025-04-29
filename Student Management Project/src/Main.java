@@ -30,8 +30,6 @@ public class Main {
         dube.setSelectedCourse("CIS213");
         dube.addAssignment("Test2", 150);
         dube.selectedCourse.setSelectedAssignment("Test2");
-        //TODO
-        //addStudentScore stills lets us add a Students score to the hashmap even when they aren't enrolled.
         dube.addStudentScore("Matt", 130);
         dube.addStudentScore("Brodie", 100);
 
