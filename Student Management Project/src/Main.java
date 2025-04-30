@@ -7,7 +7,7 @@ public class Main {
         //put into an ArrayList or Hashmap. Might have to manually 'resubmit' a new object with the changes into those lists.
 
         //This is all just tests to make sure things are working properly.
-        Teacher dube = new Teacher("Dube", "hdh@fsd", 42);
+        Teacher dube = new Teacher("HelloWorld", "hdh@fsd", 42);
         Student matt = new Student("Matt", "grg@dfdf", 31);
         Student brodie = new Student("Brodie", "fff@sdfsdf", 22);
 
