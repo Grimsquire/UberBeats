@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Teacher extends Person {
     public Teacher (String name, String email, int age) {
         this.name = name;
@@ -10,9 +12,16 @@ public class Teacher extends Person {
 
     //Creates a new Course object, sets instructorInfo for that Course to the current Teachers name, and adds it to the AvailableCourses courseList.
     protected void createCourse(String courseName) {
-        Course newCourse = new Course(courseName);
-        newCourse.instructorInfo = this.name;
-        AvailableCourses.courseList.put(courseName, newCourse);
+        Scanner scnr = new Scanner(System.in);
+        System.out.println("Please enter a description for your course.");
+        String description = scnr.nextLine();
+        System.out.println("Please enter the meeting times for your course.");
+        String meetingTimes = scnr.nextLine();
+        System.out.println("Please enter a room number.");
+        int roomNumber = scnr.nextInt();
+        System.out.println("Please enter the instructor name.");
+        String instructor = scnr.nextLine();
+        AvailableCourses.addNewCourse(courseName, description, meetingTimes, roomNumber, instructor);
     }
 
     //Takes the currently selected Course, and calls the addAssignment function to create an Assignment object and add
@@ -22,11 +31,16 @@ public class Teacher extends Person {
     }
 
     //For the currently selected Assignment, adds a Students name and score to the HashMap which keeps tracks of grades.
+    //TODO
+    //this is also something that should probably call a method from a Course object, which then calls the right Assignment method.
+    //addStudentScore stills lets us add a Students score to the hashmap even when they aren't enrolled.
     protected void addStudentScore(String studentName, int score) {
         this.selectedCourse.selectedAssignment.addScore(studentName, score);
         //TODO
         //Don't add to studentGrades, update their class grade and add THAT to studentGrades.
         this.selectedCourse.studentGrades.put(studentName, score);
+        //TODO
+        //add a prompt for student name and score, then call assignment method addScore and pass these as parameters.
     }
 
     //Prints out an average score for the current Course.

@@ -1,12 +1,15 @@
 import java.util.HashMap;
 
 public class Course {
+    //TODO
+    //Make these private?
     public Assignment selectedAssignment;
     public String courseName;
     public String courseDescription;
     public String meetingTime;
     public int roomNumber;
     public String instructorInfo;
+
     //HashMaps store the current Students, their current class grades, and Assignment objects respectively.
     public HashMap<String, Integer> studentRoster = new HashMap<>();
     public HashMap<String, Integer> studentGrades = new HashMap<>();
@@ -15,9 +18,31 @@ public class Course {
     //Simple Constructor
     public Course (String courseName) {
         this.courseName = courseName;
-        this.courseDescription = "TBD";
-        String meetingTime = "1:30PM - 3:30PM";
-        String roomNumber = "3143";
+        this.courseDescription = "No description given.";
+        String meetingTime = "Time to be determined.";
+        String roomNumber = "Room number unknown.";
+    }
+
+    //Parameterized constructor used in Teacher class when using createCourse method.
+    public Course (String name, String description, String meetingTime, int roomNumber, String instructor) {
+        this.courseName = name;
+        this.courseDescription = description;
+        this.meetingTime = meetingTime;
+        this.roomNumber = roomNumber;
+        this.instructorInfo = instructor;
+    }
+
+    //Creates a new Assignment object and adds it to the coursework HashMap. The assignmentName and maxScore parameters
+    //are used in the constructor for a new Assignment, and assignmentName is also used as a key to find the Assignment object.
+    public void addAssignment(String assignmentName, int maxScore) {
+        Assignment classwork = new Assignment(assignmentName, maxScore);
+        classwork.courseName = this.courseName;
+        coursework.put(assignmentName, classwork);
+    }
+
+    //Removes an assignment from the coursework HashMap
+    public void removeAssignment(String assignmentName) {
+        coursework.remove(assignmentName);
     }
 
     //Searches the coursework HashMap for assignmentName and returns the corresponding Assignment object.
@@ -30,18 +55,41 @@ public class Course {
         this.selectedAssignment = this.findAssignmentObj(assignmentName);
     }
 
-    //Creates a new Assignment object and adds it to the coursework HashMap. The assignmentName and maxScore parameters
-    //are used in the constructor for a new Assignment, and assignmentName is also used as a key to find the Assignment object.
-    public void addAssignment(String assignmentName, int maxScore) {
-        Assignment classwork = new Assignment(assignmentName, maxScore);
-        classwork.courseName = this.courseName;
-        coursework.put(assignmentName, classwork);
-    }
-
     //Takes a studentName as a key and adds studentID to the studentRoster HashMap. These parameters
     //are actually defined by this.____ when called by a Students enroll method.
     public void addStudent(String studentName, int studentID) {
         studentRoster.put(studentName,studentID);
+    }
+
+    //Removes the given student object from the studentRoster HashMap.
+    public void removeStudent(String studentName) {
+        studentRoster.remove(studentName);
+    }
+
+    //Simple print out of all keys (i.e. studentName) from the studentRoster HashMap.
+    public void showStudentRoster() {
+        System.out.println(studentRoster.keySet());
+    }
+
+    //Calls a method from an Assignment Object to add a student name and score into a grade HashMap.
+    public void addStudentScore(String assignmentName, String studentName, int score) {
+        findAssignmentObj(assignmentName).addScore(studentName, score);
+    }
+
+    //Removes a student name and score from a particular assignments grade HashMap.
+    public void getStudentGrade(String assignmentName, String studentName) {
+        findAssignmentObj(assignmentName).getScore(studentName);
+    }
+
+    //TODO
+    //Finds the average grade from all Students and finds what the average grade is for the selectedAssignment.
+    //this should be moved over to the Assignment class for the sake of encapsulation and clarity.
+    public double getAssignmentAvg() {;
+        double sum = 0;
+        for (int grade : selectedAssignment.grades.values()) {
+            sum += grade;
+        }
+        return (sum / selectedAssignment.grades.size());
     }
 
     //Finds the average grade from all Students and finds what the average grade is for the Course.
@@ -53,18 +101,12 @@ public class Course {
         return (sum / studentGrades.size());
     }
 
-    //Finds the average grade from all Students and finds what the average grade is for the selectedAssignment.
-    public double getAssignmentAvg() {;
-        double sum = 0;
-        for (int grade : selectedAssignment.grades.values()) {
-            sum += grade;
-        }
-        return (sum / selectedAssignment.grades.size());
-    }
-
-    //Simple print out of all keys (i.e. studentName) from the studentRoster HashMap.
-    public void showStudentRoster() {
-        System.out.println(studentRoster.keySet());
+    public void displayAllInfo() {
+        System.out.println("-" + this.courseName + "-");
+        System.out.println("Instructor: " + this.instructorInfo);
+        System.out.println("Description: " + this.courseDescription);
+        System.out.println("Meeting times: " + this.meetingTime);
+        System.out.println("Room Number: " + this.roomNumber);
     }
 
     //Getters and Setters
