@@ -68,16 +68,18 @@ public class Main {
                 //These prompts that ask for user input can be placed in the actual methods themselves,
                 //such as Teacher.addAssignment. the prompt can be placed there which would save space here.
                 //Would also need to make sure that we call selectCourse and selectAssignment when we do it.
+                String studentName;
+                String courseName;
+                String assignmentName;
+                int score;
+                int maxScore;
+                //TODO
+                //Find a way to replace Teacher with the specific Teacher object that is calling these functions.
+                //Also remove note slashes once implemented.
                 switch (menuSelection) {
-                    String studentName;
-                    String courseName;
-                    String assignmentName;
-                    int score;
-                    int maxScore;
                     case 1:
                         System.out.println("Input a name for the course.");
                         courseName = scnr.nextLine();
-                        //Either make this method static in Teacher or find a way to use it from a specific Teacher.
 //                        Teacher.createCourse(courseName);
                     case 2:
                         System.out.println("Input a course to remove.");
@@ -122,8 +124,7 @@ public class Main {
                         continue;
                     default:
                         System.out.println("Invalid selection.");
-                }//TODO
-                    //Input menu operations here.
+                }
             } while (menuSelection != 10);
         } else if (inputID > 10000) {
             do {
@@ -136,21 +137,21 @@ public class Main {
                 System.out.println("6: Exit");
                 menuSelection = scnr.nextInt();
                 //TODO
-                //Add switch statement here to perform the functions.
+                //Change Student here to instead get the proper student object and remove note slashes.
+                String courseName;
                 switch (menuSelection) {
-                    String courseName;
                     case 1:
                         System.out.println("Enter a course name to enroll.");
                         courseName = scnr.nextLine();
-//                       Student.enroll(courseName);
+//                      Student.enroll(courseName);
                     case 2:
                         System.out.println("Enter a course name to drop.");
                         courseName = scnr.nextLine();
-//                       Student.dropCourse(courseName);
+//                      Student.dropCourse(courseName);
                     case 3:
                         System.out.println("Enter a course name to view grade.");
                         courseName = scnr.nextLine();
-//                       Student.displayCourseGrade(courseName);
+//                      Student.displayCourseGrade(courseName);
                     case 4:
                         System.out.println("Displaying all course grades.");
 //                      Student.displayAllCourseGrades();
@@ -167,5 +168,5 @@ public class Main {
         } else {
             System.out.println("Invalid ID.");
         }
-    } //while (menuSelection != exitNumber);
+    }
 }

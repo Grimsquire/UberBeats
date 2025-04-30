@@ -64,6 +64,8 @@ public class Course {
     //Removes the given student object from the studentRoster HashMap.
     public void removeStudent(String studentName) {
         studentRoster.remove(studentName);
+        //TODO
+        //Make sure to remove all instances of that student name (i.e. key) from all assignment HashMaps.
     }
 
     //Simple print out of all keys (i.e. studentName) from the studentRoster HashMap.
@@ -76,9 +78,9 @@ public class Course {
         findAssignmentObj(assignmentName).addScore(studentName, score);
     }
 
-    //Removes a student name and score from a particular assignments grade HashMap.
-    public void getStudentGrade(String assignmentName, String studentName) {
-        findAssignmentObj(assignmentName).getScore(studentName);
+    public void getStudentGrade() {
+        //TODO
+        //call the method from assignment to get the student score.
     }
 
     //TODO
