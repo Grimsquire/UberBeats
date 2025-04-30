@@ -39,6 +39,8 @@ public class Teacher extends Person {
         //TODO
         //Don't add to studentGrades, update their class grade and add THAT to studentGrades.
         this.selectedCourse.studentGrades.put(studentName, score);
+        //TODO
+        //add a prompt for student name and score, then call assignment method addScore and pass these as parameters.
     }
 
     //Prints out an average score for the current Course.
