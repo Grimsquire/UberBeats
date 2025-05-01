@@ -20,8 +20,7 @@ public class Assignment {
 
     //Sums up all scores for the Assignment and finds the average.
     public double calcAvgScore() {
-        //TODO
-        //Move Courses method getAssignmentAvg to here for encapsulation sake.
+
     }
 
     //Checks for a student name from the list to pull the right score.

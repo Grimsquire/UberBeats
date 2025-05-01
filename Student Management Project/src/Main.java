@@ -13,7 +13,7 @@ public class Main {
         //This is all just tests to make sure things are working properly.
         Teacher dube = new Teacher("Dube", "hdh@fsd", 42);
         Student matt = new Student("Matt", "grg@dfdf", 31);
-        Student brodie = new Student("Brodie", "fff@sdfsdf", 22);
+        Student brodie = new Student("Brodie", "fff@sdfsdf", 19);
 
         dube.createCourse("CIS210");
         dube.createCourse("CIS211");
