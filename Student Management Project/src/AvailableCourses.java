@@ -10,10 +10,6 @@ public class AvailableCourses {
         courseList.put(courseName, newCourse);
     }
 
-    public static void removeCourse(String courseName) {
-        courseList.remove(courseName);
-    }
-
     public static void displayAll() {
         for (String key : courseList.keySet()) {
             System.out.println(key);
