@@ -45,7 +45,7 @@ public class Teacher extends Person {
 
     //Prints out an average score for the current Course.
     protected String displayCourseAvg() {
-        double numAvg = this.selectedCourse.getCourseAvg();
+        double numAvg = selectedCourse.getCourseAvg();
         System.out.println(numAvg);
         if (numAvg >= 90) {
             return "A";
