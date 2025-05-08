@@ -3,7 +3,7 @@ public class Student extends Person {
         this.name = name;
         this.email = email;
         this.age = age;
-        this.idNumber = nextId;
+        this.idNumber = 10000 + nextId;
         //Increments static variable nextId so that no 2 Student/Teacher objects have the same idNumber.
         ++nextId;
     }

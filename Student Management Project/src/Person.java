@@ -22,7 +22,7 @@ public abstract class Person {
     //pass a String as an argument when calling certain methods to find the correct object to perform that method. e.g. addAssignment in Teacher class.
     protected void setSelectedCourse(String courseName) {
         if (getCourseObj(courseName) != null) {
-            this.selectedCourse = getCourseObj(courseName);
+            selectedCourse = getCourseObj(courseName);
         } else {
             System.out.println("Could not find a valid course with that name.");
         }

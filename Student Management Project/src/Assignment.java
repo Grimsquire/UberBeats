@@ -5,8 +5,8 @@ public class Assignment {
     String assignmentName;
     int maxScore;
     //make private?
-    HashMap<String, Integer> grades = new HashMap<String,Integer>();
- 
+    HashMap<String, Integer> grades = new HashMap<>();
+
     //Simple Constructor
     public Assignment (String name, int max) {
         this.assignmentName = name;
@@ -19,13 +19,13 @@ public class Assignment {
     }
 
     //Sums up all scores for the Assignment and finds the average.
-    public double calcAvgScore() {
-        //TODO
-        //Move Courses method getAssignmentAvg to here for encapsulation sake.
-    }
+    //TODO
+    //Move Courses method getAssignmentAvg to here for encapsulation sake.
+    //public double calcAvgScore() {
+    //}
 
     //Checks for a student name from the list to pull the right score.
     public void getScore(String studentName) {
-        System.out.println(grades.get(studentName));
+        System.out.println(studentName + "'s score for " + this.assignmentName + " is " + grades.get(studentName));
     }
 }

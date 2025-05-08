@@ -78,14 +78,14 @@ public class Course {
         findAssignmentObj(assignmentName).addScore(studentName, score);
     }
 
-    public void getStudentGrade() {
-        //TODO
-        //call the method from assignment to get the student score.
+    public void getStudentGrade(String studentName) {
+        selectedAssignment.getScore(studentName);
     }
 
     //TODO
     //Finds the average grade from all Students and finds what the average grade is for the selectedAssignment.
     //this should be moved over to the Assignment class for the sake of encapsulation and clarity.
+    //this should also just call a method from Assignment class.
     public double getAssignmentAvg() {;
         double sum = 0;
         for (int grade : selectedAssignment.grades.values()) {
