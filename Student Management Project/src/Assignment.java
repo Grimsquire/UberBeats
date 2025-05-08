@@ -5,7 +5,7 @@ public class Assignment {
     String assignmentName;
     int maxScore;
     //make private?
-    HashMap<String, Integer> grades = new HashMap<String,Integer>();
+    HashMap<String, Double> grades = new HashMap<String,Double>();
 
     //Simple Constructor
     public Assignment (String name, int max) {
@@ -14,17 +14,27 @@ public class Assignment {
     }
 
     //Inputs a studentName as a key, and their score as a value into the grades HashMap.
-    public void addScore(String studentName, int score) {
+    public void addScore(String studentName, double score) {
         grades.put(studentName, score);
     }
 
     //Sums up all scores for the Assignment and finds the average.
     public double calcAvgScore() {
-
+        if (grades.isEmpty()) {
+            return -1;
+        }
+        double sum = 0;
+        for (double i : grades.values()) {
+            sum += i;
+        }
+        return ((sum) / grades.size());
     }
 
     //Checks for a student name from the list to pull the right score.
-    public void getScore(String studentName) {
-        System.out.println(grades.get(studentName));
+    public double getScore(String studentName) throws Exception {
+        if (grades.containsKey(studentName)) {
+            return grades.get(studentName);
+        }
+        throw new Exception("Didn't find the student!");
     }
 }
