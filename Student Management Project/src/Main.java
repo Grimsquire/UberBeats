@@ -76,54 +76,65 @@ public class Main {
                 //TODO
                 //Find a way to replace Teacher with the specific Teacher object that is calling these functions.
                 //Also remove note slashes once implemented.
+                scnr.nextLine();
                 switch (menuSelection) {
                     case 1:
                         System.out.println("Input a name for the course.");
                         courseName = scnr.nextLine();
 //                        Teacher.createCourse(courseName);
+                        break;
                     case 2:
                         System.out.println("Input a course to remove.");
                         courseName = scnr.nextLine();
                         //TODO
                         //Define this method in Teacher class.
 //                        Teacher.removeCourse(courseName);
+                        break;
                     case 3:
                         System.out.println("Input a name for the assignment.");
                         assignmentName = scnr.nextLine();
                         System.out.println("Input a max score for the assignment.");
                         maxScore = scnr.nextInt();
 //                        Teacher.addAssignment(assignmentName, maxScore);
+                        break;
                     case 4:
                         System.out.println("Input the name of the assignment to remove.");
                         assignmentName = scnr.nextLine();
 //                      Teacher.removeAssignment(assignmentName);
+                        break;
                     case 5:
                         System.out.println("Input a student name.");
                         studentName = scnr.nextLine();
                         System.out.println("Input a score for the student.");
                         score = scnr.nextInt();
 //                        Teacher.addStudentScore(studentName, score);
+                        break;
                     case 6:
                         System.out.println("Input a student name.");
                         studentName = scnr.nextLine();
 //                        Teacher.removeStudentScore(studentName);
+                        break;
                     case 7:
                         //This one either needs to take a course name as a parameter or rework the selectedCourse system.
                         System.out.println("Input the name of the course that you want to display the grades for.");
                         courseName = scnr.nextLine();
 //                      Teacher.displayCourseAverage(courseName);
+                        break;
                     case 8:
                         System.out.println("Input a student name to display their grade.");
                         studentName = scnr.nextLine();
 //                        Teacher.Course.getStudentGrade(studentName);
+                        break;
                     case 9:
                         System.out.println("Input a course to export all course grades.");
                         courseName = scnr.nextLine();
 //                        Teacher.exportCourseGrades(courseName);
+                        break;
                     case 10:
                         continue;
                     default:
                         System.out.println("Invalid selection.");
+                        break;
                 }
             } while (menuSelection != 10);
         } else if (inputID > 10000) {
@@ -139,30 +150,37 @@ public class Main {
                 //TODO
                 //Change Student here to instead get the proper student object and remove note slashes.
                 String courseName;
+                scnr.nextLine();
                 switch (menuSelection) {
                     case 1:
                         System.out.println("Enter a course name to enroll.");
                         courseName = scnr.nextLine();
 //                      Student.enroll(courseName);
+                        break;
                     case 2:
                         System.out.println("Enter a course name to drop.");
                         courseName = scnr.nextLine();
 //                      Student.dropCourse(courseName);
+                        break;
                     case 3:
                         System.out.println("Enter a course name to view grade.");
                         courseName = scnr.nextLine();
 //                      Student.displayCourseGrade(courseName);
+                        break;
                     case 4:
                         System.out.println("Displaying all course grades.");
 //                      Student.displayAllCourseGrades();
+                        break;
                     case 5:
                         System.out.println("Enter a course name to export grades to a file.");
                         courseName = scnr.nextLine();
 //                      Student.exportCourseGrades(courseName);
+                        break;
                     case 6:
                         continue;
                     default:
                         System.out.println("Invalid selection.");
+                        break;
                 }
             } while (menuSelection != 6);
         } else {
