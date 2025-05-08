@@ -111,6 +111,21 @@ public class Course {
         return ((sum) / studentGrades.size());
     }
 
+    public double getStudentCourseAvg(String studentName) {
+        double sum = 0;
+        int numAssignments = 0;
+
+        if (studentGrades.containsKey(studentName)) {
+            sum = studentGrades.get(studentName);
+            numAssignments = 1;
+        } else {
+            System.out.println("No grades found for: " + studentName);
+            return 0.0;
+        }
+
+        return sum / numAssignments;
+    }
+
     public void displayAllInfo() {
         System.out.println("-" + this.courseName + "-");
         System.out.println("Instructor: " + this.instructorInfo);
