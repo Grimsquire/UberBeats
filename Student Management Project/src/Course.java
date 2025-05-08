@@ -12,7 +12,7 @@ public class Course {
 
     //HashMaps store the current Students, their current class grades, and Assignment objects respectively.
     public HashMap<String, Integer> studentRoster = new HashMap<>();
-    public HashMap<String, Integer> studentGrades = new HashMap<>();
+    public HashMap<String, Double> studentGrades = new HashMap<>();
     public HashMap<String, Assignment> coursework = new HashMap<>();
 
     //Simple Constructor
@@ -78,29 +78,37 @@ public class Course {
         findAssignmentObj(assignmentName).addScore(studentName, score);
     }
 
-    public void getStudentGrade(String studentName) {
-        selectedAssignment.getScore(studentName);
+    public double getStudentGrade(String username) throws Exception {
+        double studGrade = studentGrades.get(username);
+        if (studGrade == -1) {
+            throw new Exception("Student not found!");
+        }
+        return studGrade;
     }
 
     //TODO
     //Finds the average grade from all Students and finds what the average grade is for the selectedAssignment.
     //this should be moved over to the Assignment class for the sake of encapsulation and clarity.
-    //this should also just call a method from Assignment class.
-    public double getAssignmentAvg() {;
-        double sum = 0;
-        for (int grade : selectedAssignment.grades.values()) {
-            sum += grade;
+
+    public double getAssignmentAvg() throws Exception {
+        double avgScre = selectedAssignment.calcAvgScore();
+        if (avgScre == -1) {
+            throw new Exception("No grades are submitted for this assignment.");
         }
-        return (sum / selectedAssignment.grades.size());
+        return avgScre;
     }
 
     //Finds the average grade from all Students and finds what the average grade is for the Course.
     public double getCourseAvg() {
-        double sum = 0;
-        for (int grade : studentGrades.values()) {
-            sum += grade;
+        if (studentGrades.isEmpty()) {
+            return -1; // empty
         }
-        return (sum / studentGrades.size());
+
+        double sum = 0;
+        for (double i : studentGrades.values()) {
+            sum += i;
+        }
+        return ((sum) / studentGrades.size());
     }
 
     public void displayAllInfo() {
@@ -115,31 +123,34 @@ public class Course {
     public String getCourseName() {
         return courseName;
     }
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
     public String getCourseDescription() {
         return courseDescription;
-    }
-    public void setCourseDescription(String courseDescription) {
-        this.courseDescription = courseDescription;
     }
     public String getMeetingTime() {
         return meetingTime;
     }
-    public void setMeetingTime(String meetingTime) {
-        this.meetingTime = meetingTime;
+    public String getInstructorInfo() {
+        return instructorInfo;
     }
     public int getRoomNumber() {
         return roomNumber;
     }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+    public void setCourseDescription(String courseDescription) {
+        this.courseDescription = courseDescription;
+    }
+    public void setMeetingTime(String meetingTime) {
+        this.meetingTime = meetingTime;
+    }
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
-    }
-    public String getInstructorInfo() {
-        return instructorInfo;
     }
     public void setInstructor(String instructor) {
         this.instructorInfo = instructorInfo;
     }
+
+
 }

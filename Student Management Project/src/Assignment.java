@@ -19,10 +19,13 @@ public class Assignment {
     }
 
     //Sums up all scores for the Assignment and finds the average.
-    //TODO
-    //Move Courses method getAssignmentAvg to here for encapsulation sake.
-    //public double calcAvgScore() {
-    //}
+    public double calcAvgScore() {
+        double sum = 0;
+        for (double i : grades.values()) {
+            sum += i;
+        }
+        return ((sum) / grades.size());
+    }
 
     //Checks for a student name from the list to pull the right score.
     public void getScore(String studentName) {
