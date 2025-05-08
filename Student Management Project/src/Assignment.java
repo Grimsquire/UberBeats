@@ -6,7 +6,7 @@ public class Assignment {
     int maxScore;
     //make private?
     HashMap<String, Integer> grades = new HashMap<String,Integer>();
-
+ 
     //Simple Constructor
     public Assignment (String name, int max) {
         this.assignmentName = name;
