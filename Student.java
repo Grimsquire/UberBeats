@@ -1,8 +1,6 @@
 import java.io.IOException;
-//import java.nio.Buffer;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-//import java.util.List;
 import java.util.Map;
 
 public class Student extends Person {
