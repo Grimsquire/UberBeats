@@ -61,8 +61,8 @@ public class Teacher extends Person {
     }
 
     //Prints out an average score for the current Assignment.
-    protected String displayAssignmentAvg() throws Exception {
-        double numAvg = selectedCourse.getAssignmentAvg();
+    protected String displayAssignmentAvg() {
+        double numAvg = this.selectedCourse.getAssignmentAvg();
         System.out.println(numAvg);
         if (numAvg >= 90) {
             return "A";
