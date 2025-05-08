@@ -12,7 +12,7 @@ public class Course {
 
     //HashMaps store the current Students, their current class grades, and Assignment objects respectively.
     public HashMap<String, Integer> studentRoster = new HashMap<>();
-    public HashMap<String, Double> studentGrades = new HashMap<>();
+    public HashMap<String, Integer> studentGrades = new HashMap<>();
     public HashMap<String, Assignment> coursework = new HashMap<>();
 
     //Simple Constructor
@@ -78,12 +78,9 @@ public class Course {
         findAssignmentObj(assignmentName).addScore(studentName, score);
     }
 
-    public double getStudentGrade(String username) throws Exception {
-        double studGrade = studentGrades.get(username);
-        if (studGrade == -1) {
-            throw new Exception("Student not found!");
-        }
-        return studGrade;
+    public void getStudentGrade() {
+        //TODO
+        //call the method from assignment to get the student score.
     }
 
     //TODO
@@ -93,7 +90,11 @@ public class Course {
 
     //Finds the average grade from all Students and finds what the average grade is for the Course.
     public double getCourseAvg() {
-
+        double sum = 0;
+        for (int grade : studentGrades.values()) {
+            sum += grade;
+        }
+        return (sum / studentGrades.size());
     }
 
     public void displayAllInfo() {
@@ -108,30 +109,29 @@ public class Course {
     public String getCourseName() {
         return courseName;
     }
-    public String getCourseDescription() {
-        return courseDescription;
-    }
-    public String getMeetingTime() {
-        return meetingTime;
-    }
-    public String getInstructorInfo() {
-        return instructorInfo;
-    }
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+    public String getCourseDescription() {
+        return courseDescription;
     }
     public void setCourseDescription(String courseDescription) {
         this.courseDescription = courseDescription;
     }
+    public String getMeetingTime() {
+        return meetingTime;
+    }
     public void setMeetingTime(String meetingTime) {
         this.meetingTime = meetingTime;
     }
+    public int getRoomNumber() {
+        return roomNumber;
+    }
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
+    }
+    public String getInstructorInfo() {
+        return instructorInfo;
     }
     public void setInstructor(String instructor) {
         this.instructorInfo = instructorInfo;
