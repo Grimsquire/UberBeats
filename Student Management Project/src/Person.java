@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Person {
@@ -39,7 +40,7 @@ public abstract class Person {
     }
 
     //Defined differently in Student and Teacher.
-    protected abstract void exportCourseGrades(Course courseName);
+    protected abstract void exportCourseGrades(Course courseName) throws IOException;
 
     //Getters and Setters. No setter for idNumber as that shouldn't change.
     protected String getName() {

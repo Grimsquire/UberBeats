@@ -60,7 +60,7 @@ public class Student extends Person {
     }
 
     //Prints out all of a Students letter and number grades for each Course.
-    protected void displayAllCourseGrades() {
+    protected void displayAllCourseGrades() throws Exception {
         //Needs unit testing
         for(Course course : schedule) {
             String courseName = course.getCourseName();
