@@ -118,12 +118,12 @@ public class Main {
                         //This one either needs to take a course name as a parameter or rework the selectedCourse system.
                         System.out.println("Input the name of the course that you want to display the grades for.");
                         courseName = scnr.nextLine();
-                        dube.displayCourseAvg(courseName);
+//                      Teacher.displayCourseAverage(courseName);
                         break;
                     case 8:
                         System.out.println("Input a student name to display their grade.");
                         studentName = scnr.nextLine();
-//                        dube.Course.getStudentGrade(studentName);
+//                        Teacher.Course.getStudentGrade(studentName);
                         break;
                     case 9:
                         System.out.println("Input a course to export all course grades.");
