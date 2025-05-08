@@ -90,10 +90,25 @@ public class Course {
     //Finds the average grade from all Students and finds what the average grade is for the selectedAssignment.
     //this should be moved over to the Assignment class for the sake of encapsulation and clarity.
 
+    public double getAssignmentAvg() throws Exception {
+        double avgScre = selectedAssignment.calcAvgScore();
+        if (avgScre == -1) {
+            throw new Exception("No grades are submitted for this assignment.");
+        }
+        return avgScre;
+    }
 
     //Finds the average grade from all Students and finds what the average grade is for the Course.
     public double getCourseAvg() {
+        if (studentGrades.isEmpty()) {
+            return -1; // empty
+        }
 
+        double sum = 0;
+        for (double i : studentGrades.values()) {
+            sum += i;
+        }
+        return ((sum) / studentGrades.size());
     }
 
     public void displayAllInfo() {
@@ -136,4 +151,6 @@ public class Course {
     public void setInstructor(String instructor) {
         this.instructorInfo = instructorInfo;
     }
+
+
 }
